@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FiArrowLeft, FiTrash } from 'react-icons/fi'
+import { FiArrowLeft, FiTrash, FiCheck } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -25,6 +25,7 @@ export default function Carrinho() {
         });
     }, [loginUser]);
 
+
     return (
         <div className="profile-container">
             <header>
@@ -33,19 +34,24 @@ export default function Carrinho() {
                 </Link>
                 <span>Sua lista de compras, {nameUser}</span>
                 <p className="button">{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val)} </p>
-
+                <button type="button">
+                    <FiCheck size={18} color="#E02041" />
+                </button>
             </header>
 
             <h1>Seus Produtos</h1>
             <ul>
-                
+
                 {cart.map(cart => (
                     <li key={cart.id}>
                         <strong>Descrição: </strong>
                         <p>{cart.descricao}</p>
+                        <strong>Quantidade:</strong>
+                        <p> {cart.quantidade}</p>
 
                         <strong>Valor: </strong>
-                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(cart.preco)}</p>
+                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(cart.quantidade * cart.preco)}</p>
+                        
                     </li>
                 ))}
             </ul>

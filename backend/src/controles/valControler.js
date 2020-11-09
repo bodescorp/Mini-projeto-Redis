@@ -10,7 +10,7 @@ module.exports = {
                 list = JSON.parse(reply);
 
                 for (let index = 0; index < list.length; index++) {
-                    const element = list[index].preco;
+                    const element = list[index].preco * list[index].quantidade;
                     som += element;
 
                 }

@@ -54,7 +54,7 @@ export default function Profile() {
                         <strong>Valor: </strong>
                         <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produtos.preco)}</p>
                         
-                        <button onClick={() => handleCarrinho(produtos.id, produtos.descricao, produtos.preco)} type="button">
+                        <button onClick={() => handleCarrinho(produtos.id, produtos.descricao, produtos.preco, 1)} type="button">
                             <FiDollarSign size={20} color="#a8a8b3" />
                         </button>
 
