@@ -7,6 +7,8 @@ const usersControler = require('./controles/usersControler');
 const cartControler = require('./controles/cartControler');
 const sessionControler = require('./controles/sessionControler');
 const valControler = require('./controles/valControler');
+const cartMongo = require('./controles/cartMongoControler');
+
 
 
 routes.post('/session', sessionControler.create);
@@ -21,7 +23,12 @@ routes.delete('/users/:id', usersControler.delete);
 
 routes.post('/cart', cartControler.create);
 routes.get('/cart/:loginUser', cartControler.list);
+//routes.delete('cart/:id', cartControler.delet);
 
 routes.get('/val/:loginUser', valControler.vale);
+
+routes.post('/compras', cartMongo.addPedido);
+routes.get('/compras/:User', cartMongo.getCarrinhos);
+routes.get('/itens/:descricao', cartMongo.findProduto);
 
 module.exports = routes;

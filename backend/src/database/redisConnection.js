@@ -7,6 +7,8 @@ const client = redis.createClient({
     port: process.env.REDIS_PORT
 });
 
+module.exports = client;
+
 // client.on('connect', function (error) {
 //     console.log('Conectado');
 // });
@@ -50,4 +52,3 @@ const client = redis.createClient({
 //    console.log(response);
 //});
 
-module.exports = client;
